@@ -1,7 +1,7 @@
 #PROBLEM 1
 
 # We have a 12 samples for how many days there is between an (continously repeated, normally distributed) event takes place.
-# Based on the samples, ca we say that the averige amount of days between the events is 30?
+# Based on the samples, can we say that the averige amount of days between the events is 30?
 
 #H0: The population avarage for how often the event takes place is 30 days 
 #H1: The population avarage for how often the event takes place is NOT 30 days 
@@ -24,7 +24,7 @@ t.test(OnlyDays, mu=30,alternative ="two.sided")
 ?t.test
 
 #ANSWER 1: With a p value of 0.057, we cannot reject H1 at 5% significance level. However, it is possible at 10% significance level.
-#If we choose 5% 5% significance level, we keep H1 and say that the averige is 30 days.
+#If we choose 5% 5% significance level, we keep H1 and say that the average is 30 days.
 
 #PROBLEM 2
 
@@ -44,7 +44,7 @@ Workout
 
 #Have  look at the 2a) data visually
 Pic1 <-plot(Workout$Hours.at.work,Workout$Amount.of.times.worked.out)
-#Does not seem to be connected
+#Does clearly not seem to be connected
 
 #Create regression for 2a)
 regr1 <- lm(Workout$Amount.of.times.worked.out~Workout$Hours.at.work)
