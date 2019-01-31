@@ -1,7 +1,7 @@
 #PROBLEM 1
 
 # We have a 12 samples for how many days there is between an (continously repeated, normally distributed) event takes place.
-# Based on the samples, can we say that the averige amount of days between the events is 30?
+# Based on the samples, can we say that the average amount of days between the events is 30?
 
 #H0: The population avarage for how often the event takes place is 30 days 
 #H1: The population avarage for how often the event takes place is NOT 30 days 
@@ -64,3 +64,37 @@ abline(reg3)
 #ANSWER 2b) The p value for all factors except Whole.days.booked.with.other.programme are >0.05.
 #Only Whole.days.booked.with.other.programme effects Amount.of.times.worked.out. The effect is negative. 
 #We can reject H0 and say that One factor from the csv file affects amount of workout times
+
+#Problem 3
+
+# A married couple wants to go on a date at least once/month. Below is the data for year 2018. 
+# Does the amount of dates during one month vary significantly more than what can be expected, taking normal variation into account?
+
+dates_per_month <- data.frame(month=1:12,dates=c(1,1,2,2,1,2,5,1,2,2,1,2))
+dates_per_month
+
+# We make an XmR chart of the data above
+library(ggplot2)
+library(ggQC)
+
+XmR_PlotOfDates <- ggplot(dates_per_month, aes(x = month, y = dates)) +
+  geom_point() + geom_line() + 
+  stat_QC(method = "XmR")
+
+XmR_PlotOfDates
+
+# We can see that the amount of dates for the 7th month (July) falls just outside the upper natural process limit.
+# The reason is, most likely, that the couple was on vacation in July and therefore had more time together then.
+
+# We can also create a mR chart to have a closer look at the variation
+
+mR_PlotOfDates <- ggplot(dates_per_month, aes(x = month, y = dates)) +
+  stat_mR() + 
+  stat_QC_labels(method="mR")
+
+mR_PlotOfDates
+
+# Here we can clearly see that the variation for the other months than July have been quite small but it makes a big jump between July and August.
+# The big jump also makes the central line lay higher than it would without this "outlier".
+
+# ANSWER: The amount of Dates in July differs significantly from what can be seen a normal variation.
