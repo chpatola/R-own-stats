@@ -1,0 +1,512 @@
+str(anorexi2)
+str(anorexia2)
+# b)
+meanvals1 <- tapply(anorexia2$Prewt_kg,anorexia2$Treat,mean)
+# Otetaan MASS-paketti kÃ¤yttÃ¶Ã¶n
+library(MASS)
+# a)
+anorexia2 <- anorexia
+summary(anorexia2)
+str(anorexia2)
+anorexia2$Prewt_kg <- anorexia2$Prewt*0.45359237
+anorexia2$Postwt_kg <- anorexia2$Postwt*0.45359237
+# b)
+meanvals1 <- tapply(anorexia2$Prewt_kg,anorexia2$Treat,mean)
+meanvals1
+anorexia2
+dat <- data.frame(sample=c(95, 136, 157, 87, 92, 47, 114, 81, 114, 121,
+131, 82, 115, 48, 76, 74, 28, 101, 106, 89,
+123, 78, 59, 113),
+group=factor(c(1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2,
+2, 2, 2, 3, 3, 3, 3, 3, 3, 3, 3),
+labels=c("x1", "x2", "x3")))
+# a)
+oneway.test(sample~group,data=dat,var.equal=TRUE)
+# a)
+coop
+# a)
+str(coop)
+# b)
+# Create a subset containing only specimen S5
+s5 <- subset(coop2,coop2$Spc=="S5")
+# a)
+str(coop)
+coop2 <- coop[seq(1,nrow(coop),by=2),]
+# b)
+# Create a subset containing only specimen S5
+s5 <- subset(coop2,coop2$Spc=="S5")
+# b)
+# Create a subset containing only specimen S5
+s5 <- subset(coop2,coop2$Spc=="S5")
+s5
+labels=c("x1", "x2", "x3")))
+# a)
+oneway.test(sample~group,data=dat,var.equal=TRUE)
+# p-value is approximately 0.6782
+# b)
+oneway.test(sample~group,data=dat,var.equal=FALSE)
+# p-value is approximately 0.7071
+# Assessment: You can give 2 points, if both of the p-values are correct.
+# If there are some minor mistakes, you can give 1 point.
+# Give 0 points only if the solutions is completely incorrect.
+#########################################################################
+# Problem 7
+library(MASS)
+# a)
+str(coop)
+coop2 <- coop[seq(1,nrow(coop),by=2),]
+# b)
+# Create a subset containing only specimen S5
+s5 <- subset(coop2,coop2$Spc=="S5")
+s5
+# One-way ANOVA
+oneway.test(Conc~Lab,data=s5)
+# The value of the F-test statistic is approximately 5.088 and the p-value is approximately 0.04422
+# c)
+# One-way ANOVA
+oneway.test(Conc~Bat,data=s5)
+# The value of the F-test statistic is approximately 0.48532 and the p-value is approximately 0.6297
+# d)
+# Two-way ANOVA
+summary(aov(Conc~Lab+Bat,data=s5))
+fit <- lm(weight~height,data=women)
+# b)
+summary(fit)
+# Estimaatti vakiotermille on noin -87.51667 ja estimaatti kulmakertoimelle on noin 3.45
+# c)
+plot(women$height,women$weight)
+plot(women$height,women$weight)
+# d)
+abline(fit)
+fit1 <- lm(Height~Girth,data=trees)
+summary(fit1)
+# a)
+plot(Animals$body,Animals$brain,type="n")
+text(Animals$body,Animals$brain,labels=row.names(Animals),cex=0.6)
+# Tehtävä 8
+library(MASS)
+# a)
+plot(Animals$body,Animals$brain,type="n")
+text(Animals$body,Animals$brain,labels=row.names(Animals),cex=0.6)
+# a)
+plot(Animals$body,Animals$brain,type="n")
+text(Animals$body,Animals$brain,labels=row.names(Animals),cex=0.6)
+# a)
+plot(Animals$body,Animals$brain,type="n",cex=0.8)
+# b)
+fit_brain <- lm(brain~body,data=Animals)
+abline(fit_brain)
+# a)
+plot(Animals$body,Animals$brain,type="n")
+text(Animals$body,Animals$brain,labels=row.names(Animals),cex=0.6)
+# b)
+fit_brain <- lm(brain~body,data=Animals)
+abline(fit_brain)
+plot(log(Animals$body),log(Animals$brain),type="n")
+text(log(Animals$body),log(Animals$brain),labels=row.names(Animals),cex=0.6)
+fit_brain_log <- lm(log(brain)~log(body),data=Animals)
+abline(fit_brain_log)
+# Tehtävä 5
+# a)
+fit1 <- lm(Sepal.Length~Sepal.Width,data=iris)
+summary(fit1)
+fit1 <- lm(Sepal.Length~Sepal.Width,data=iris)
+summary(fit1)
+fitset <- lm(Sepal.Length[iris$Species=="setosa"]~Sepal.Width[iris$Species=="setosa"],data=iris)
+fitver <- lm(Sepal.Length[iris$Species=="versicolor"]~Sepal.Width[iris$Species=="versicolor"],data=iris)
+fitvir <- lm(Sepal.Length[iris$Species=="virginica"]~Sepal.Width[iris$Species=="virginica"],data=iris)
+summary(fitset) # selitysaste on noin 0.5514
+summary(fitver) # selitysaste on noin 0.2766
+summary(fitvir) # selitysaste on noin 0.2091
+# Tehtävä 6
+plot(iris$Sepal.Width,iris$Sepal.Length)
+abline(fit1,lty=2)
+#Exercise 4
+#Q5
+#Looking at iris data and compairing subdata
+#a)
+iris
+fit1 <-lm(Sepal.Length~Sepal.Width,data=iris)
+summary(fit1)
+summary(fit1)$r.squared
+# The coefficient of determination is 0.01382265
+#Q5 b)
+fitset <-lm(Sepal.Length~Sepal.Width,data=iris, subset = c(iris$Species=="setosa"))
+summary(fitset)$r.squared
+# The coefficient of determination is 0.5513756
+fitver =iris[51:100,]
+fitver
+fitver <-lm(Sepal.Length~Sepal.Width,data=fitver)
+summary(fitver)$r.squared
+# The coefficient of determination is 0.2765821
+fitvir =iris[101:150,]
+fitvir
+fitvir <-lm(Sepal.Length~Sepal.Width,data=fitvir)
+summary(fitvir)$r.squared
+# The coefficient of determination is 0.2090573
+#6 a)
+#Plotting data from Q5
+plot(iris$Sepal.Width,iris$Sepal.Length)
+abline(fit1, type="l", lty=2)
+fitset <-lm(Sepal.Length~Sepal.Width,data=iris, subset = c(iris$Species=="setosa"))
+summary(fitset)$r.squared
+#Exercise 4
+#Q5
+#Looking at iris data and compairing subdata
+#a)
+iris
+fit1 <-lm(Sepal.Length~Sepal.Width,data=iris)
+summary(fit1)
+summary(fit1)$r.squared
+# The coefficient of determination is 0.01382265
+#Q5 b)
+fitset <-lm(Sepal.Length~Sepal.Width,data=iris, subset = c(iris$Species=="setosa"))
+summary(fitset)$r.squared
+# The coefficient of determination is 0.5513756
+fitver =iris[51:100,]
+fitver
+fitver <-lm(Sepal.Length~Sepal.Width,data=fitver)
+summary(fitver)$r.squared
+# The coefficient of determination is 0.2765821
+fitvir =iris[101:150,]
+fitvir
+fitvir <-lm(Sepal.Length~Sepal.Width,data=fitvir)
+summary(fitvir)$r.squared
+# The coefficient of determination is 0.2090573
+#6 a)
+#Plotting data from Q5
+plot(iris$Sepal.Width,iris$Sepal.Length)
+abline(fit1, type="l", lty=2)
+#6 a)
+#Plotting data from Q5
+plot(iris$Sepal.Width,iris$Sepal.Length)
+abline(fit1, type="l", lty=2)
+plot(iris$Sepal.Width, iris$Sepal.Length, col=c('red', 'blue', 'green')[as.numeric(iris$Species)])
+abline(fitset, col ="red")
+abline(fitver, col="blue")
+abline(fitvir, col ="green")
+#6 d)
+legend('topright', legend = levels(iris$Species), col = c('red', 'blue', 'green'), cex = 0.8, pch = 1)
+sentosa <- rep(0, 150)
+sentosa[1:50] <-1
+sentosa
+sentosa <- rep(0, 150)
+sentosa[1:50] <-1
+sentosa
+sentosa <- rep(0, 150)
+sentosa[1:50] <-1
+sentosa
+it2a<-lm(iris$Sepal.Length~iris$Sepal.Width+sentosa)
+summary(fit2a)
+it2a<-lm(iris$Sepal.Length~iris$Sepal.Width+sentosa)
+summary(fit2a)
+# Tilastotiede ja R tutuksi II, syksy 2018
+# Ratkaisuehdotukset ja pisteytysohjeet viikon 4 R-tehtäviin
+##############################################################
+# Tehtävä 5
+# a)
+fit1 <- lm(Sepal.Length~Sepal.Width,data=iris)
+summary(fit1)
+# Mallin selitysaste on noin 0.01382 (löytyy summaryn antaman tulosteen kohdasta Multiple R-squared).
+# b)
+fitset <- lm(Sepal.Length[iris$Species=="setosa"]~Sepal.Width[iris$Species=="setosa"],data=iris)
+fitver <- lm(Sepal.Length[iris$Species=="versicolor"]~Sepal.Width[iris$Species=="versicolor"],data=iris)
+fitvir <- lm(Sepal.Length[iris$Species=="virginica"]~Sepal.Width[iris$Species=="virginica"],data=iris)
+summary(fitset) # selitysaste on noin 0.5514
+summary(fitver) # selitysaste on noin 0.2766
+summary(fitvir) # selitysaste on noin 0.2091
+# Arvosteluohje: Kaksi pistettä voi antaa, jos kaikki selitysasteet on saatu oikein. Jos on katsottu kohtaa "Adjusted R-squared", ei
+# pisteitä tarvitse vähentää. Tällöin selitysasteet ovat a-kohdassa 0.007159, ja b-kohdassa 0.542, 0.2615 ja 0.1926.
+# Pisteen voi vähentää, jos selitysaste on oikeasti katsottu väärin tai mikäli malleja ei ole sovitettu oikein.
+# Nolla pistettä vain, jos vastauksessa ei ole lainkaan oikeaa ideaa tai hyvää yritystä.
+#######################################################################################################
+# Tehtävä 6
+plot(iris$Sepal.Width,iris$Sepal.Length)
+abline(fit1,lty=2)
+# b)
+# Tähän on monta tapaa. Alla olevassa tavassa on käytetty funktiota unclass, joka ei todennäköisesti ole aiemmin tullut vastaan.
+plot(iris$Sepal.Width,iris$Sepal.Length,col=c("red","blue","green")[unclass(iris$Species)],pch=16)
+# Toinen tapa
+cols <- as.character(iris$Species)
+cols[iris$Species=="setosa"] <- "red"
+cols[iris$Species=="versicolor"] <- "blue"
+cols[iris$Species=="virginica"] <- "green"
+plot(iris$Sepal.Width,iris$Sepal.Length,col=cols,pch=16)
+# c)
+abline(fitset,col="red")
+abline(fitver,col="blue")
+abline(fitvir,col="green")
+# d)
+legend("topleft",legend=levels(iris$Species),pch=16,col=c("red","blue","green"))
+# Arvosteluohje: Oikeanlaisesta kuvasta ja selitteestä kaksi pistettä. Symbolit on voinut valita vapaasti. Pisteen voi vähentää, jos kuvassa on jokin oleellinen
+# virhe. Pienistä virheistä ei tarvitse vähentää pisteitä. Kiinnitä tässä huomiota siihen, onko kuvalla järkevä tulkinta ja vastaako kuva estimoituja malleja.
+# Esim. jos muuttujat ovat kuvassa eri päin kuin mallissa, kyseessä ei ole pieni virhe! Nolla pistettä vain, mikäli vastauksessa ei ole lainkaan hyvää yritystä tai
+# on tehty vain a-kohta.
+###########################################################################################################
+# Tehtävä 7
+# a)
+setosa <- numeric(nrow(iris))
+setosa[iris$Species=="setosa"] <- 1
+# b)
+fit2a <- lm(iris$Sepal.Length~iris$Sepal.Width+setosa)
+summary(fit2a)
+# Kummankin selittäjän kohdalla nollahypoteesi voidaan hylätä, sillä t-testien p-arvot ovat erittäin pieniä.
+# c)
+fit2b <- lm(Sepal.Length~Sepal.Width+Species,data=iris)
+# d)
+summary(fit2b)
+# Jos laji on versicolor, niin malli on 2.2514 + 1.4587 + 0.8036*Sepal.Width
+# Vakiotermin estimaatti tälle mallille on siis noin
+2.2514+1.4587
+# eli noin 3.7101
+# Arvosteluohje: Kaksi pistettä, jos vakiotermi on saatu oikein ja b-kohdassa on oikea vastaus. Kaikista virheistä, jotka vaikuttavat tulokseen, voi tässä tehtävässä vähentää
+# yhden pisteen. Nolla pistettä kuitenkin vain, mikäli vastauksessa ei ole lainkaan oikeaa ideaa tai hyvää yritystä tai mikäli on tehty alle puolet.
+fit3a <- lm(Murder~Assault+UrbanPop+Rape,data=USArrests)
+# b)
+summary(fit3a)
+fit3b <- lm(Murder~Assault+UrbanPop,data=USArrests)
+summary(fit3b)
+# Tehtävä 6
+# a)
+chisq.test(c(4,10,6))
+# Tehtävä 6
+# a)
+?chisq.test
+matriisi <- matrix(c(4,10,6,8,6,6),nrow=2,byrow=TRUE)
+rownames(matriisi) <- c("Laatikko 1", "Laatikko 2")
+colnames(matriisi) <- c("Punainen","Sininen","Valkoinen")
+matriisi
+# Tehtävä 7
+# a)
+# Selviytyneiden osuus kaikista matkustajista henkilökunta mukaanlukien
+# Tehdään yksiulotteinen frekvenssitaulu, josta näkee, kuinka moni selvisi ja kuinka moni ei
+# ja sovelletaan tähän funktiota prop.table(). Nähdään, että selviytymistieto on arrayn neljännessä "ulottuvuudessa".
+prop.table(margin.table(Titanic,4))
+# b)
+# Tehdään kaksiulotteinen ristiintaulukointi, josta näkyy matkustusluokan ja selviytymistiedon välinen yhteys
+# ja sovelletaan tähän funktiota prop.table(). Matkustusluokka on arrayn ensimmäisessä "ulottuvuudessa".
+# Funktiolla prop.table() lasketaan funktion margin.table() palauttaman taulun riviprosentit.
+selviytymiset_luokittain <- prop.table(margin.table(Titanic,c(1,4)),1)
+selviytymiset_luokittain
+# Nyt vastaus kysymykseen on tämän taulukon Yes-sarake. Siis
+survivalRates <- selviytymiset_luokittain[,2]
+survivalRates
+taulu <- margin.table(Titanic,c(1,4))
+# Tehdään riippumattomuustesti
+chisq.test(taulu)
+#counted sum in all classes
+passangersinclasss <- c(325,285,706,885)
+#counted survived in eah class
+survivedinclass <- c(203,118,178,212)
+Firstsurv<-survivedinclass[1]/ passangersinclasss[1]
+Secsurv<-survivedinclass[2]/ passangersinclasss[2]
+Thirdsurv<-survivedinclass[3]/ passangersinclasss[3]
+Crewsurv<-survivedinclass[4]/ passangersinclasss[4]
+survivedpropclass <- c(Firstsurv, Secsurv,Thirdsurv, Crewsurv)
+survivedpropclass
+chisq.test(survivedpropclass,expsurvshares)
+#Q6 a
+#took balls 20 times
+#4 red, 10 blue and 6 white balls
+?chisq.test
+results <- c(4,10,6)
+share =1/3
+share
+expected_shares <- c(share,share,share)
+chisq.test(results,p = expected_shares)
+# The value of the statistics is 2.8 and the p value 0.2466
+#Q6 b
+# Two boxes with blue, white and red balls
+#took balls 20 times from each box
+#4 red, 10 blue, 6 white from box 1
+#8 red, 6 blue and 6 white from second box
+O <- matrix(c(4,8,10,6,6,6), ncol=2,  byrow =TRUE )
+O
+chisq.test(O, corr=F)
+# The value of the statistics is 2.3333 and the p value 0.3114
+#Q7 a
+Titanic
+str(Titanic)
+summary(Titanic)
+margin.table(Titanic) # 2201 passangers all in all, 711 survived when counting the numbers in the data
+711/2201
+# Proportin of survived is 0.323035
+#Q7 b
+#counted sum in all classes
+passangersinclasss <- c(325,285,706,885)
+#counted survived in eah class
+survivedinclass <- c(203,118,178,212)
+Firstsurv<-survivedinclass[1]/ passangersinclasss[1]
+Secsurv<-survivedinclass[2]/ passangersinclasss[2]
+Thirdsurv<-survivedinclass[3]/ passangersinclasss[3]
+Crewsurv<-survivedinclass[4]/ passangersinclasss[4]
+survivedpropclass <- c(Firstsurv, Secsurv,Thirdsurv, Crewsurv)
+survivedpropclass
+#Q7 c
+711/2201
+#0.323035 of all survived
+chisq.test(survivedpropclass,expsurvshares)
+?chisq.test
+# a)
+x2 <- sort(x,decreasing = TRUE)
+# b)
+order(x)[3]
+airquality
+state.x77
+cars
+pf(q=3.689, df1=3, df2=16, lower.tail=FALSE)
+x<- c( 97, 82, 90, 73, 86, 64, 53, 93, 36, 77)
+y <- c(152, 100, 117, 86, 133, 93, 88, 131, 50, 110)
+fit1 <- lm(y,x)
+x<- c( 97, 82, 90, 73, 86, 64, 53, 93, 36, 77)
+y <- c(152, 100, 117, 86, 133, 93, 88, 131, 50, 110)
+fit1 <- lm(y~x)
+summary(fit1)
+#11
+airquality
+fit2b <- lm(Ozone~Solar.R+ Wind+Temp,data=airquality)
+summary(fit2b)
+predict(fit2b,newdata=data.frame(Solar.R=238, Wind=13,Temp=71),interval="predict",level=0.95)
+# Tilastotiede ja R tutuksi II, syksy 2018
+# Ratkaisuehdotukset ja pisteytysohjeet viikon 4 R-tehtäviin
+##############################################################
+# Tehtävä 5
+# a)
+fit1 <- lm(Sepal.Length~Sepal.Width,data=iris)
+summary(fit1)
+# Mallin selitysaste on noin 0.01382 (löytyy summaryn antaman tulosteen kohdasta Multiple R-squared).
+# b)
+fitset <- lm(Sepal.Length[iris$Species=="setosa"]~Sepal.Width[iris$Species=="setosa"],data=iris)
+fitver <- lm(Sepal.Length[iris$Species=="versicolor"]~Sepal.Width[iris$Species=="versicolor"],data=iris)
+fitvir <- lm(Sepal.Length[iris$Species=="virginica"]~Sepal.Width[iris$Species=="virginica"],data=iris)
+summary(fitset) # selitysaste on noin 0.5514
+summary(fitver) # selitysaste on noin 0.2766
+summary(fitvir) # selitysaste on noin 0.2091
+# Arvosteluohje: Kaksi pistettä voi antaa, jos kaikki selitysasteet on saatu oikein. Jos on katsottu kohtaa "Adjusted R-squared", ei
+# pisteitä tarvitse vähentää. Tällöin selitysasteet ovat a-kohdassa 0.007159, ja b-kohdassa 0.542, 0.2615 ja 0.1926.
+# Pisteen voi vähentää, jos selitysaste on oikeasti katsottu väärin tai mikäli malleja ei ole sovitettu oikein.
+# Nolla pistettä vain, jos vastauksessa ei ole lainkaan oikeaa ideaa tai hyvää yritystä.
+#######################################################################################################
+# Tehtävä 6
+plot(iris$Sepal.Width,iris$Sepal.Length)
+abline(fit1,lty=2)
+# b)
+# Tähän on monta tapaa. Alla olevassa tavassa on käytetty funktiota unclass, joka ei todennäköisesti ole aiemmin tullut vastaan.
+plot(iris$Sepal.Width,iris$Sepal.Length,col=c("red","blue","green")[unclass(iris$Species)],pch=16)
+# Toinen tapa
+cols <- as.character(iris$Species)
+cols[iris$Species=="setosa"] <- "red"
+cols[iris$Species=="versicolor"] <- "blue"
+cols[iris$Species=="virginica"] <- "green"
+plot(iris$Sepal.Width,iris$Sepal.Length,col=cols,pch=16)
+# c)
+abline(fitset,col="red")
+abline(fitver,col="blue")
+abline(fitvir,col="green")
+# d)
+legend("topleft",legend=levels(iris$Species),pch=16,col=c("red","blue","green"))
+# Arvosteluohje: Oikeanlaisesta kuvasta ja selitteestä kaksi pistettä. Symbolit on voinut valita vapaasti. Pisteen voi vähentää, jos kuvassa on jokin oleellinen
+# virhe. Pienistä virheistä ei tarvitse vähentää pisteitä. Kiinnitä tässä huomiota siihen, onko kuvalla järkevä tulkinta ja vastaako kuva estimoituja malleja.
+# Esim. jos muuttujat ovat kuvassa eri päin kuin mallissa, kyseessä ei ole pieni virhe! Nolla pistettä vain, mikäli vastauksessa ei ole lainkaan hyvää yritystä tai
+# on tehty vain a-kohta.
+###########################################################################################################
+# Tehtävä 7
+# a)
+setosa <- numeric(nrow(iris))
+setosa[iris$Species=="setosa"] <- 1
+# b)
+fit2a <- lm(iris$Sepal.Length~iris$Sepal.Width+setosa)
+summary(fit2a)
+# Kummankin selittäjän kohdalla nollahypoteesi voidaan hylätä, sillä t-testien p-arvot ovat erittäin pieniä.
+# c)
+fit2b <- lm(Sepal.Length~Sepal.Width+Species,data=iris)
+# d)
+summary(fit2b)
+# Jos laji on versicolor, niin malli on 2.2514 + 1.4587 + 0.8036*Sepal.Width
+# Vakiotermin estimaatti tälle mallille on siis noin
+2.2514+1.4587
+# eli noin 3.7101
+# Arvosteluohje: Kaksi pistettä, jos vakiotermi on saatu oikein ja b-kohdassa on oikea vastaus. Kaikista virheistä, jotka vaikuttavat tulokseen, voi tässä tehtävässä vähentää
+# yhden pisteen. Nolla pistettä kuitenkin vain, mikäli vastauksessa ei ole lainkaan oikeaa ideaa tai hyvää yritystä tai mikäli on tehty alle puolet.
+###############################################################################################################
+# Tehtävä 8
+# a)
+fit3a <- lm(Murder~Assault+UrbanPop+Rape,data=USArrests)
+# b)
+summary(fit3a)
+# Tällainen "turha" selittäjä on tulosten perusteella muuttuja Rape, eli raiskausrikokset.
+# Jos asiaa haluttaisiin tarkastella tarkemmin, niin huomattaisiin, että selittäjät Assault ja Rape korreloivat keskenään melko voimakkaasti,
+# joten niitä ei voi sisällyttää samaan malliin.
+# Poistetaan raiskausrikokset
+fit3b <- lm(Murder~Assault+UrbanPop,data=USArrests)
+summary(fit3b)
+# Vakiotermin estimaatti on noin 3.207153. Muuttujaa Assault vastaavan regressiokertoimen estimaatti on noin 0.043910 ja muuttujaa
+# UrbanPop vastaavan regressiokertoimen estimaatti on noin -0.044510.
+# c)
+predict(fit3a,newdata=data.frame(Assault=200,Rape=50,UrbanPop=50),interval="predict",level=0.95)
+# Ennustevälin alaraja on noin 5.313151 ja yläraja on noin 17.82157.
+#12
+cars
+Fit = plot(dist,speed, data =cars)
+Fit = plot(cars$dist,cars$speed, data =cars)
+Fit = plot(cars$dist,cars$speed, data =cars)
+abline(fit)
+matriisi <- matrix(c(127,156,24,29,35,29),nrow=3,byrow=TRUE)
+rownames(matriisi) <- c("side", "stom","back")
+colnames(matriisi) <- c("early","no early")
+matriisi
+chisq.test(matriisi)
+pf(q=3.689, df1=3, df2=16, lower.tail=FALSE)
+pf(q=3.689, df1=3, df2=16)
+setwd("~/Skola/R/Own Exercies")
+#PROBLEM 1
+# We have a 12 samples for how many days there is between an (continously repeated, normally distributed) event takes place.
+# Based on the samples, ca we say that the averige amount of days between the events is 30?
+#H0: The population avarage for how often the event takes place is 30 days
+#H1: The population avarage for how often the event takes place is NOT 30 days
+#Import data
+PData <-read.csv2("P data_.csv",stringsAsFactors =FALSE )
+PData
+str(PData)
+#Choose only days
+OnlyDays <- PData$Days
+OnlyDays
+#Chck mean and sd
+mean(OnlyDays)
+sd(OnlyDays)
+#Test if averige is 30
+t.test(OnlyDays, mu=30,alternative ="two.sided")
+?t.test
+#ANSWER 1: With a p value of 0.057, we cannot reject H1 at 5% significance level. However, it is possible at 10% significance level.
+#If we choose 5% 5% significance level, we keep H1 and say that the averige is 30 days.
+#PROBLEM 2
+#We have data on times worked out during specific weeks (normally distributed). We want to see if some other factors affect the amount of worked out times.
+#2a)
+#H0: The amount of hours spent at work does NOT affect amount of workout times
+#H0: The amount of hours spent at work does affect amount of workout times
+#2b)
+#H0: None of the factors from the csv file affect amount of workout times
+#H0: One or more of the factors from the csv file affect amount of workout times
+#Import data
+Workout <-read.csv2("workout.csv",stringsAsFactors =FALSE )
+Workout
+#Have  look at the 2a) data visually
+Pic1 <-plot(Workout$Hours.at.work,Workout$Amount.of.times.worked.out)
+#Does not seem to be connected
+#Create regression for 2a)
+regr1 <- lm(Workout$Amount.of.times.worked.out~Workout$Hours.at.work)
+summary(regr1)
+abline(regr1)
+#ANSWER 2a): The p value is 0.34 so H0 cannot be rejected. We say that The amount of hours spent at work does NOT affect amount of workout times
+#Create regression fr 2b)
+regr2 <- lm(Workout$Amount.of.times.worked.out~Workout$Hours.studying.for.exam+Workout$Whole.days.booked.with.other.programme+Workout$Hours.at.work)
+summary(regr2)
+#ANSWER 2b) The p value for all factors except Whole.days.booked.with.other.programme are >0.05.
+#Only Whole.days.booked.with.other.programme effects Amount.of.times.worked.out. The effect is negative.
+#We can reject H0 and say that One factor from the csv file affects amount of workout times
+Pic2 <-plot(Workout$Whole.days.booked.with.other.programme,Workout$Amount.of.times.worked.out)
+reg3 <- lm(Workout$Amount.of.times.worked.out~Workout$Whole.days.booked.with.other.programme)
+abline(reg3)
+regr1 <- lm(Workout$Amount.of.times.worked.out~Workout$Hours.at.work)
+summary(regr1)
+abline(regr1)
